@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AppContext, useGlobalContext } from './Context'
+
 
 const Home = () => {
+  const name = useGlobalContext()
   return (
-    <div>Home</div>
+    <>
+    <h1>This is Home Page</h1>
+    <p>Name is <span style={{color:"red"}}>{name}</span></p>
+    </>
   )
 }
 

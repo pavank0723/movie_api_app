@@ -8,7 +8,6 @@ import SingleMovie from './pages/SingleMovie';
 const App = () => {
   return (
     <>
-      
         <Routes>
           <Route path='/' element = {<Home />}/>
           <Route path='movie/:id' element = {<SingleMovie />}/>
