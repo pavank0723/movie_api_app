@@ -4,7 +4,7 @@
 
 import React,{useContext, useEffect, useState} from 'react';
 
-const API_URL = `https://www.omdbapi.com/?apikey=8dc3c4dc&s=titanic`;
+const API_URL = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}&s=titanic`;
 
 const AppContext = React.createContext();
 
