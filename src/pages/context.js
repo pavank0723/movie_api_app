@@ -4,7 +4,7 @@
 
 import React,{useContext, useEffect, useState} from 'react';
 
-const API_URL = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}&s=titanic`;
+const API_URL = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}`;
 
 const AppContext = React.createContext();
 
@@ -14,6 +14,7 @@ const AppProvider = ({ children }) => {
     const [isLoading,setIsLoading] = useState(true);
     const [movie,setMovie] = useState([]);
     const [isError,setIsError] = useState({show:"false",msg:""});
+    const [query,setQuery] = useState("titanic");
 
     const getMovies = async (url) =>{ //parameter
         try{
@@ -38,10 +39,10 @@ const AppProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        getMovies(API_URL); //Argument
-    },[]);
+        getMovies(`${API_URL}&s=${query}`); //Argument
+    },[query]);
 
-    return <AppContext.Provider value={{isLoading,isError,movie}}>
+    return <AppContext.Provider value={{isLoading,isError,movie,query,setQuery}}>
         {children}
     </AppContext.Provider>
 };
