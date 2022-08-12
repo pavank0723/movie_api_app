@@ -1,13 +1,11 @@
-import React, { useContext } from 'react'
-import { AppContext, useGlobalContext } from './Context'
+import Movies from './Movies'
 
 
 const Home = () => {
-  const name = useGlobalContext()
+  
   return (
     <>
-    <h1>This is Home Page</h1>
-    <p>Name is <span style={{color:"red"}}>{name}</span></p>
+    <Movies/> 
     </>
   )
 }
