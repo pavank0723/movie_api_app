@@ -14,7 +14,7 @@ const AppProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [movie, setMovie] = useState([]);
     const [isError, setIsError] = useState({ show: "false", msg: "" });
-    const [query, setQuery] = useState("titanic");
+    const [query, setQuery] = useState("avengers");
 
     const getMovies = async (url) => { //parameter
         setIsLoading(true);
