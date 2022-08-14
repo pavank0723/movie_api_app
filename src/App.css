@@ -10,6 +10,7 @@
 :root {
   --text-clr: #3570a4;
   --bg-clr: #f2f4fc;
+  --my-color: #353535;
   --border-clr: rgb(102, 155, 201);
 }
 
@@ -165,6 +166,7 @@ figure {
 
 .card-text {
   font-size: 1.8rem;
+  color: var(--my-color);
 }
 
 a {
@@ -198,6 +200,7 @@ a:hover img {
 
 .back-btn {
   padding: 1.2rem 3.6rem;
+  margin-bottom: 3rem;
 }
 
 /* responsive code   */

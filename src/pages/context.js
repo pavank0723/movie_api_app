@@ -4,7 +4,7 @@
 
 import React, { useContext, useEffect, useState } from 'react';
 
-const API_URL = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}`;
+export const API_URL = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}`;
 
 const AppContext = React.createContext();
 
@@ -17,6 +17,7 @@ const AppProvider = ({ children }) => {
     const [query, setQuery] = useState("titanic");
 
     const getMovies = async (url) => { //parameter
+        setIsLoading(true);
         try {
             const reqData = await fetch(url);
             const resData = await reqData.json();
@@ -24,11 +25,16 @@ const AppProvider = ({ children }) => {
 
             if (resData.Response === "True") {
                 setIsLoading(false);
+                setIsError({
+                    show: "false",
+                    msg: ""
+                }
+                )
                 setMovie(resData.Search);
             } else {
                 setIsError({
                     show: "true",
-                    msg: resData.error
+                    msg: resData.Error
                 }
                 )
             }
@@ -41,7 +47,7 @@ const AppProvider = ({ children }) => {
     useEffect(() => {
         let waitTime = setTimeout(() => {
             getMovies(`${API_URL}&s=${query}`); //Argument
-        }, 700);
+        }, 600);
 
         return () => clearTimeout(waitTime);
 
